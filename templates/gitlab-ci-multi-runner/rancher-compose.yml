@@ -1,0 +1,19 @@
+version: '2'
+.catalog:
+  name: "GitLab CI runner inside"
+  version: "v0.0.1"
+  description: "GitLab CI runners inside Rancher."
+  questions:
+    - variable: "RUNNER_LIMIT"
+      label: "Number of builds to runner before stopping container"
+      type: "number"
+      default: 100
+      required: true
+    - variable: "CI_SERVER_URL"
+      label: "GitLab URL"
+      type: "string"
+      required: true
+    - variable: "CI_SERVER_TOKEN"
+      label: "GitLab runner token"
+      type: "string"
+      required: true

@@ -1,0 +1,10 @@
+version: '2'
+services:
+  gitlab-ci-runner:
+    image: gitlab/gitlab-runner:alpine
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      EXECUTOR: "docker"
+    labels:
+      io.rancher.container.pull_image: always

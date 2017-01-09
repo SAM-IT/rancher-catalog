@@ -2,11 +2,13 @@ version: '2'
 services:
   gitlab-ci-runner:
     image: gitlab/gitlab-runner:alpine
+    entrypoint: /usr/bin/dumb-init
+    command: 'sh -c "/entrypoint register -n && gitlab-ci-multi-runner run"'
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       CI_SERVER_URL: ${CI_SERVER_URL}
-      CI_SERVER_TOKEN: ${CI_SERVER_TOKEN}
+      REGISTRATION_TOKEN: ${REGISTRATION_TOKEN}
       RUNNER_LIMIT: ${RUNNER_LIMIT}
       RUNNER_EXECUTOR: "docker"
     labels:

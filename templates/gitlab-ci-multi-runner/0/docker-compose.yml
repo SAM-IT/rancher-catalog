@@ -8,3 +8,4 @@ services:
       EXECUTOR: "docker"
     labels:
       io.rancher.container.pull_image: always
+    command: run-single

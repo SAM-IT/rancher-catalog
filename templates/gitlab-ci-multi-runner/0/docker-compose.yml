@@ -6,6 +6,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       EXECUTOR: "docker"
+      CI_SERVER_URL: ${CI_SERVER_URL}
+      CI_SERVER_TOKEN: ${CI_SERVER_TOKEN}
+      RUNNER_LIMIT: ${RUNNER_LIMIT}
     labels:
       io.rancher.container.pull_image: always
     command: run-single

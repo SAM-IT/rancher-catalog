@@ -1,0 +1,4 @@
+name: Gitlab CI runner
+description: |
+  GitLab CI runner as a rancher service.
+category: Continuous Integration

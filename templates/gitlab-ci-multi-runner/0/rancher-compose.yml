@@ -6,14 +6,14 @@ version: '2'
   questions:
     - variable: "RUNNER_LIMIT"
       label: "Number of builds to runner before stopping container"
-      type: "number"
+      type: int
       default: 100
       required: true
     - variable: "CI_SERVER_URL"
       label: "GitLab URL"
-      type: "string"
+      type: string
       required: true
     - variable: "CI_SERVER_TOKEN"
       label: "GitLab runner token"
-      type: "string"
+      type: string
       required: true

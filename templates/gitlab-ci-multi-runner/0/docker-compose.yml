@@ -3,8 +3,6 @@ services:
   runner:
     image: gitlab/gitlab-runner:alpine
     entrypoint: /usr/bin/dumb-init
-    command:
-    environment:
     labels:
       io.rancher.container.hostname_override: container_name
       io.rancher.container.pull_image: always

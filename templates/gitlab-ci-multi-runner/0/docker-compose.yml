@@ -3,14 +3,16 @@ services:
   gitlab-ci-runner:
     image: gitlab/gitlab-runner:alpine
     entrypoint: /usr/bin/dumb-init
-    command: 'sh -c "/entrypoint register -n && gitlab-ci-multi-runner run"'
+    command: 'sh -c "([ -f /etc/gitlab-runner/config.toml ] || ( echo concurrent = $CONCURRENT > /etc/gitlab-runner/config.toml && /entrypoint register && cat /etc/gitlab-runner/config.toml ) ) && /entrypoint run"'
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/gitlab-runner
     environment:
       CI_SERVER_URL: ${CI_SERVER_URL}
       REGISTRATION_TOKEN: ${REGISTRATION_TOKEN}
-      RUNNER_LIMIT: ${RUNNER_LIMIT}
+      CONCURRENT: ${CONCURRENT}
       RUNNER_EXECUTOR: "docker"
+      REGISTER_NON_INTERACTIVE: 1
+      DOCKER_IMAGE: alpine
     labels:
       io.rancher.container.pull_image: always
-    command: run-single

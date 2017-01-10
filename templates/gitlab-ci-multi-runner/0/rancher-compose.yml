@@ -4,16 +4,17 @@ version: '2'
   version: "v0.0.1"
   description: "GitLab CI runners inside Rancher."
   questions:
-    - variable: "RUNNER_LIMIT"
-      label: "Number of builds to runner before stopping container"
-      type: int
-      default: 100
-      required: true
     - variable: "CI_SERVER_URL"
       label: "GitLab URL"
       type: string
       required: true
-    - variable: "CI_SERVER_TOKEN"
-      label: "GitLab runner token"
+    - variable: "REGISTRATION_TOKEN"
+      label: "GitLab registration token"
+      type: string
+      required: true
+    - variable: "CONCURRENT"
+      label: "Concurrency"
+      default: 1
+      description: "See https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/blob/master/docs/configuration/advanced-configuration.md"
       type: string
       required: true

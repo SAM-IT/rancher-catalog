@@ -16,3 +16,5 @@ services:
       DOCKER_IMAGE: alpine
     labels:
       io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:host_label: ${HOST_LABEL}
+      io.rancher.scheduler.global: 'true'

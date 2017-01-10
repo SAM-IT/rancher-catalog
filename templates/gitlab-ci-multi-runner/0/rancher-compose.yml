@@ -18,3 +18,7 @@ version: '2'
       description: "See https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/blob/master/docs/configuration/advanced-configuration.md"
       type: string
       required: true
+    - variable: "HOST_LABEL"
+      label: Run on all hosts with this label
+      default: "BUILD=1"
+      type: string

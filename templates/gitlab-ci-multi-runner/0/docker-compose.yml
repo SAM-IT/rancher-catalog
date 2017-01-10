@@ -1,12 +1,26 @@
 version: '2'
 services:
-  gitlab-ci-runner:
+  runner:
     image: gitlab/gitlab-runner:alpine
     entrypoint: /usr/bin/dumb-init
-    command: 'sh -c "([ -f /etc/gitlab-runner/config.toml ] || ( echo concurrent = $CONCURRENT > /etc/gitlab-runner/config.toml && /entrypoint register && cat /etc/gitlab-runner/config.toml ) ) && /entrypoint run"'
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /etc/gitlab-runner
+    command:
+    environment:
+    labels:
+      io.rancher.container.hostname_override: container_name
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:host_label: ${HOST_LABEL}
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+      io.rancher.scheduler.global: 'true'
+      io.rancher.sidekicks: configuration
+    volumes_from:
+      - configuration
+  configuration:
+    image: gitlab/gitlab-runner:alpine
+    entrypoint: /usr/bin/dumb-init
+    command:
+      - sh
+      - -c
+      - [ -f /etc/gitlab-runner/config.toml ] || ( echo concurrent = $CONCURRENT > /etc/gitlab-runner/config.toml && /entrypoint register)
     environment:
       CI_SERVER_URL: ${CI_SERVER_URL}
       REGISTRATION_TOKEN: ${REGISTRATION_TOKEN}
@@ -15,6 +29,7 @@ services:
       REGISTER_NON_INTERACTIVE: 1
       DOCKER_IMAGE: alpine
     labels:
-      io.rancher.container.pull_image: always
-      io.rancher.scheduler.affinity:host_label: ${HOST_LABEL}
-      io.rancher.scheduler.global: 'true'
+      io.rancher.container.hostname_override: container_name
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/gitlab-runner

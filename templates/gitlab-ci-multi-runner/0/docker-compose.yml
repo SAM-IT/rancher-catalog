@@ -17,11 +17,7 @@ services:
     command:
       - sh
       - -c
-      - "([ -f /etc/gitlab-runner/config.toml ] || /entrypoint register)"
-      - "&&"
-      - 'sed -i "s/concurrent \= [0-9]*/concurrent \= ${CONCURRENT} /etc/gitlab-runner/config.toml'
-      - "&&"
-      - "cat /etc/gitlab-runner/config.toml"
+      - "([ -f /etc/gitlab-runner/config.toml ] || /entrypoint register) && sed -i \"s/concurrent \= [0-9]*/concurrent \= ${CONCURRENT}\" /etc/gitlab-runner/config.toml && cat /etc/gitlab-runner/config.toml"
     environment:
       CI_SERVER_URL: ${CI_SERVER_URL}
       REGISTRATION_TOKEN: ${REGISTRATION_TOKEN}

@@ -1,7 +1,7 @@
 version: '2'
 services:
   runner:
-    image: alpine
+    image: sammousa/transip-rancher
     stdin_open: true
     tty: true
     command:

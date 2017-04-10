@@ -8,3 +8,7 @@ version: '2'
       label: "Target service"
       type: service
       required: true
+    - variable: "PRIVATE_KEY"
+      type: secret
+      label: "TransIP API Key"
+      required: true

@@ -10,5 +10,9 @@ version: '2'
       required: true
     - variable: "PRIVATE_KEY"
       type: multiline
-      label: "TransIP API Key"
+      label: "TransIP API key"
+      required: true
+    - variable: "USER_NAME"
+      type: string
+      label: "TransIP username"
       required: true

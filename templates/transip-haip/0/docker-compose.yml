@@ -4,10 +4,6 @@ services:
     image: sammousa/transip-rancher
     stdin_open: true
     tty: true
-    command:
-      - /bin/sh
-      - -c
-      - /usr/bin/tail -f /dev/null
     labels:
       io.rancher.container.pull_image: always
     environment:

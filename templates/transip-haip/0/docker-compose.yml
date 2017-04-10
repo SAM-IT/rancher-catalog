@@ -11,3 +11,4 @@ services:
       USER_NAME: ${USER_NAME}
       PRIVATE_KEY: ${PRIVATE_KEY}
       INTERVAL: ${INTERVAL}
+      DEBUG: ${DEBUG}

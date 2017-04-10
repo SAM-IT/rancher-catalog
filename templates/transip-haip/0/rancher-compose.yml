@@ -9,6 +9,6 @@ version: '2'
       type: service
       required: true
     - variable: "PRIVATE_KEY"
-      type: secret
+      type: multiline
       label: "TransIP API Key"
       required: true

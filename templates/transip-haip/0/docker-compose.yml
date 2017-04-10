@@ -1,0 +1,6 @@
+version: '2'
+services:
+  runner:
+    image: alpine
+    labels:
+      io.rancher.container.pull_image: always

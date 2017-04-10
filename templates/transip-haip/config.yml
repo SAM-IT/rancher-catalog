@@ -1,0 +1,4 @@
+name: Transip HA-IP
+description: |
+  Redirect Transip HA-IP to the host on which a service is running.
+category: External Services

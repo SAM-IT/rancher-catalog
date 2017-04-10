@@ -1,0 +1,10 @@
+version: '2'
+.catalog:
+  name: "Transip HA-IP"
+  version: "v0.0.1"
+  description: "Redirect Transip HA-IP to the host on which a service is running."
+  questions:
+    - variable: "WATCH_SERVICE"
+      label: "Target service"
+      type: service
+      required: true

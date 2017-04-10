@@ -16,3 +16,18 @@ version: '2'
       type: string
       label: "TransIP username"
       required: true
+    - variable: "INTERVAL"
+      type: int
+      label: "Number of seconds between checks"
+      description: "The smaller this number the less down time your users will notice, this comes at the expense of higher resource usage."
+      default: 10
+      required: false
+    - variable: "DEBUG"
+      label: "Enable debug output"
+      description: "Enable debug output during testing only"
+      default: false
+      type: enum
+      options:
+        - True
+        - False
+

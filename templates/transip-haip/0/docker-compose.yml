@@ -2,5 +2,13 @@ version: '2'
 services:
   runner:
     image: alpine
+    stdin_open: true
+    tty: true
+    command:
+      - /bin/sh
+      - -c
+      - /usr/bin/tail -f /dev/null
     labels:
       io.rancher.container.pull_image: always
+    environment:
+      WATCH_SERVICE: ${WATCH_SERVICE}

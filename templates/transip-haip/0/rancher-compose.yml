@@ -1,8 +1,10 @@
 version: '2'
 .catalog:
-  name: "Transip HA-IP"
+  name: "Transip HA-IP (unofficial)"
   version: "v0.0.1"
-  description: "Redirect Transip HA-IP to the host on which a service is running."
+  description: |
+    Redirect Transip HA-IP to the host on which a service is running.
+    This is NOT an official catalog published by TransIP.
   questions:
     - variable: "WATCH_SERVICE"
       label: "Target service"
@@ -28,6 +30,6 @@ version: '2'
       default: false
       type: enum
       options:
-        - True
-        - False
+        - true
+        - false
 

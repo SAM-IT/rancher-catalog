@@ -1,4 +1,4 @@
-name: Transip HA-IP
+name: Transip HA-IP (unofficial)
 description: |
   Redirect Transip HA-IP to the host on which a service is running.
 category: External Services

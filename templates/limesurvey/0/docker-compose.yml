@@ -1,8 +1,7 @@
 version: '2'
 services:
   php-fpm:
-    build:
-      context: ./php-fpm
+    image: sammousa/ls_phpfpm
     environment:
       DBNAME: ${DBNAME}
       DBUSER: ${DBUSER}
@@ -14,8 +13,7 @@ services:
       io.rancher.container.pull_image: always
       io.rancher.sidekicks: ls-data
   nginx:
-    build:
-      context: ./nginx
+    image: sammousa/ls_nginx
     depends_on:
       - php-fpm
     environment:

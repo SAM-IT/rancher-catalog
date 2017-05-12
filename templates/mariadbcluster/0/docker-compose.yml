@@ -8,8 +8,6 @@ services:
       io.rancher.scheduler.global: 'true'
   mariadb:
     image: collecthor/mariadb:v0.0.1
-    stdin_open: true
-    tty: true
     volumes_from:
     - mariadb-data
     labels:

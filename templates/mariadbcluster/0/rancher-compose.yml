@@ -33,3 +33,7 @@ services:
   mariadb-data:
     scale: 1
     start_on_create: true
+.catalog:
+  name: "MariaDB Cluster"
+  version: "v0.0.1"
+  description: "MariaDB Cluster"

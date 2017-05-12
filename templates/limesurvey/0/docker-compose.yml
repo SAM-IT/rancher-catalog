@@ -18,6 +18,8 @@ services:
       - php-fpm
     environment:
       FPM: php-fpm:9000
+    labels:
+      io.rancher.container.pull_image: always
   ls-data:
     image: alpine
     volumes:

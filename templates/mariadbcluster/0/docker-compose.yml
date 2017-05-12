@@ -18,8 +18,8 @@ services:
     image: alpine
     volumes:
     - /var/lib/mysql
-    command:
-    - 'true'
+    net: none
+    command: /bin/true
     labels:
       io.rancher.container.pull_image: always
       io.rancher.container.start_once: 'true'

@@ -1,7 +1,7 @@
 version: '2'
 services:
   mariadb-lb:
-    image: rancher/lb-service-haproxy:v0.7.1
+    image: rancher/lb-service-haproxy:v0.7.6
     labels:
       io.rancher.container.agent.role: environmentAdmin
       io.rancher.container.create_agent: 'true'

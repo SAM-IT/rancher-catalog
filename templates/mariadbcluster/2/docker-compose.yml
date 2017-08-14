@@ -7,7 +7,7 @@ services:
       io.rancher.container.create_agent: 'true'
       io.rancher.scheduler.global: 'true'
   mariadb:
-    image: collecthor/mariadb:v0.0.2
+    image: collecthor/mariadb:v0.0.4
     volumes_from:
     - mariadb-data
     labels:

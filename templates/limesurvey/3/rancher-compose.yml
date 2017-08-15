@@ -1,6 +1,6 @@
 version: '2'
 .catalog:
-  name: "Limesurvey 2.67"
+  name: "Limesurvey 2.60"
   version: "2.67.2.170728-2"
   description: "Limesurvey 2.60 inside Rancher, using separate nginx / php-fpm containers."
   questions:

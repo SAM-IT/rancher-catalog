@@ -20,3 +20,26 @@ version: '2'
       label: Database name
       type: string
       required: true
+services:
+  php-fpm:
+    upgrade_strategy:
+      start_first: true
+    scale: 1
+    start_on_create: true
+    health_check:
+      healthy_threshold: 2
+      port: 9000
+      interval: 2000
+      unhealthy_treshold: 3
+      strategy: recreate
+  nginx:
+    upgrade_strategy:
+      start_first: true
+    scale: 1
+    start_on_create: true
+    health_check:
+      healthy_threshold: 2
+      port: 9000
+      interval: 2000
+      unhealthy_treshold: 3
+      strategy: recreate

@@ -1,7 +1,7 @@
 version: '2'
 services:
   php-fpm:
-    image: sammousa/ls_phpfpm:2.67.2.170728-10
+    image: sammousa/ls_phpfpm:2.67.2.170728-13
     environment:
       DBNAME: ${DBNAME}
       DBUSER: ${DBUSER}

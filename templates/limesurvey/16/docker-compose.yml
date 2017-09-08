@@ -1,0 +1,21 @@
+version: '2'
+services:
+  php-fpm:
+    image: sammousa/ls_phpfpm:2.67.2.170728-16
+    environment:
+      DBNAME: ${DBNAME}
+      DBUSER: ${DBUSER}
+      DBHOST: ${DBHOST}
+      DBPASS: ${DBPASS}
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+  nginx:
+    image: sammousa/ls_nginx:2.67.2.170728-16
+    depends_on:
+      - php-fpm
+    environment:
+      FPM: php-fpm:9000
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}

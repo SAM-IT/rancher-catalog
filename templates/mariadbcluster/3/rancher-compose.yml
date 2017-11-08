@@ -1,0 +1,39 @@
+version: '2'
+services:
+  mariadb-lb:
+    start_on_create: true
+    lb_config:
+      certs: []
+      port_rules:
+      - priority: 1
+        protocol: tcp
+        service: mariadb
+        source_port: 3306
+        target_port: 3306
+    health_check:
+      healthy_threshold: 2
+      response_timeout: 2000
+      port: 42
+      unhealthy_threshold: 3
+      initializing_timeout: 60000
+      interval: 2000
+      reinitializing_timeout: 60000
+  mariadb:
+    scale: 1
+    start_on_create: true
+    health_check:
+      healthy_threshold: 2
+      response_timeout: 2000
+      port: 3306
+      unhealthy_threshold: 3
+      initializing_timeout: 60000
+      interval: 2000
+      strategy: none
+      reinitializing_timeout: 60000
+  mariadb-data:
+    scale: 1
+    start_on_create: true
+.catalog:
+  name: "MariaDB Cluster"
+  version: "latest"
+  description: "MariaDB Cluster"

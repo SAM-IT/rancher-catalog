@@ -7,7 +7,9 @@ services:
       io.rancher.container.create_agent: 'true'
       io.rancher.scheduler.global: 'true'
   mariadb:
-    image: collecthor/mariadb:v0.0.4
+    image: collecthor/mariadb:latest
+    environment:
+      INNODB_PAGE_SIZE: ${INNODB_PAGE_SIZE}
     volumes_from:
     - mariadb-data
     labels:

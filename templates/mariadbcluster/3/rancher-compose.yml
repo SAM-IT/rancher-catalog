@@ -37,3 +37,7 @@ services:
   name: "MariaDB Cluster"
   version: "latest"
   description: "MariaDB Cluster"
+  questions:
+    - variable: "INNODB_PAGE_SIZE"
+      label: "InnoDB page size"
+      type: string

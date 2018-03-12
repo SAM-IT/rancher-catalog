@@ -1,8 +1,8 @@
 version: '2'
 .catalog:
-  name: "Limesurvey 2.72"
-  version: "2.73.0.171219"
-  description: "Limesurvey 2.72 inside Rancher, using separate nginx / php-fpm containers."
+  name: "Limesurvey 2.73"
+  version: "2.73.0.171219-1"
+  description: "Limesurvey 2.73 inside Rancher, using separate nginx / php-fpm containers."
   questions:
     - variable: "DBHOST"
       label: "Database host"

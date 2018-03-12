@@ -13,7 +13,7 @@ services:
       io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
   nginx:
-    image: sammousa/ls_nginx:2.73.0.171219
+    image: sammousa/ls_nginx:2.73.0.171219-1
     depends_on:
       - php-fpm
     environment:

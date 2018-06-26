@@ -66,7 +66,7 @@ services:
       reinitializing_timeout: 60000
 .catalog:
   name: "MariaDB Cluster"
-  version: "latest"
+  version: "1.0.0"
   description: "MariaDB Cluster"
   questions:
     - variable: "INNODB_PAGE_SIZE"

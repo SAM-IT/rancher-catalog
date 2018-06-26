@@ -28,7 +28,7 @@ services:
   leader-forwarder:
     image: awesam/rancher-leader-forwarder
     command: --dst-port 3306 --src-port 3307
-    net: container:mariadb
+    network_mode: container:mariadb
   write-lb:
     image: rancher/lb-service-haproxy:v0.7.15
     labels:
